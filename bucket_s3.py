@@ -1,10 +1,13 @@
 import logging
 import boto3
 from botocore.exceptions import ClientError
+import io
+import pickle
 
+def criando_bucket():
 
-def criando_bucket(bucket_name, region='us-east-1'):
-
+    bucket_name = 'grupo2erikjuliana'
+    region = None
     try:
         if region is None:
             s3_client = boto3.client('s3')
@@ -22,5 +25,13 @@ def criando_bucket(bucket_name, region='us-east-1'):
 def lendo_bucket():
     pass
 
-def inserindo_bucket():
-    pass
+import gzip, io
+
+def gzip_greet_file(fileobj):
+    """write gzipped hello message to a file"""
+    with gzip.open(filename=fileobj, mode='wb') as fp:
+        fp.write(b'hello!')
+
+def inserindo_bucket(my_array):
+    client = boto3.client('s3')
+    client.put_object(Body=my_array.file, Bucket='grupo2erikjuliana', Key=my_array.filename)
