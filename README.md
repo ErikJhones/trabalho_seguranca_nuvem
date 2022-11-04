@@ -40,7 +40,7 @@ Após isso digite no terminal:
 Depois clone a aplicação com: `git clone link_api_do_github`  
 Entre dentro do diretório da aplicação com: `cd nome_diretório`  
 Instale as dependências do python: `pip install -r requirements.txt`  
-Execute a aplicação: `python3 -m uvicorn api:app`  
+Execute a aplicação: `python3 -m uvicorn api:app --port 8080  --reload`  
 
 ## usando o dinamodb do aws
 Para conseguir criar tabelas, inserir dados e realizar consultas no dinamidb da aws, é necessário fornecer uma permissão.  

@@ -1,8 +1,6 @@
 import logging
 import boto3
 from botocore.exceptions import ClientError
-import io
-import pickle
 
 def criando_bucket():
 
@@ -23,14 +21,13 @@ def criando_bucket():
     return True
 
 def lendo_bucket():
-    pass
-
-import gzip, io
-
-def gzip_greet_file(fileobj):
-    """write gzipped hello message to a file"""
-    with gzip.open(filename=fileobj, mode='wb') as fp:
-        fp.write(b'hello!')
+    # s3 = boto3.client('s3')
+    # s3.download_file('grupo2erikjuliana', OBJECT_NAME, 'FILE_NAME')
+    arquivos = {'nome': []}
+    conn = boto3.client('s3')  # again assumes boto.cfg setup, assume AWS S3
+    for key in conn.list_objects(Bucket='grupo2erikjuliana')['Contents']:
+        arquivos['nome'].append(key['Key'])
+    return arquivos
 
 def inserindo_bucket(my_array):
     client = boto3.client('s3')

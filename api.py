@@ -38,7 +38,8 @@ async def escrevendo_bucket(file: UploadFile):
 
 @app.get("/lendobucket/")
 async def lendo_bucket():
-    return FileResponse("your_image.jpeg")
+    return bucket_s3.lendo_bucket()
+    # return FileResponse("your_image.jpeg")
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)
