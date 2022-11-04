@@ -10,6 +10,8 @@ Davyson
 ## descrição
 
 ## Subindo a aplicação pro ec2
+Assista ao seguinte vídeo: [como fazer o deploy de uma api fastapi no ec2](https://www.youtube.com/watch?v=SgSnz7kW-Ko)
+
 Crie uma instância no ec2 (tenha certeza de criar uma nova chave .pem). 
 
 EM seguinda acesse sua instância via SSH. 

@@ -10,7 +10,7 @@ app = FastAPI()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World"}
+    return {"Grupo_2": ['Juliana', 'Davyson', 'Hyago', 'Erik']}
 
 @app.get("/criandodinamo")
 def criando_dinamo():
@@ -36,10 +36,13 @@ async def criando_bucket_s3():
 async def escrevendo_bucket(file: UploadFile):
     bucket_s3.inserindo_bucket(file)
 
-@app.get("/lendobucket/")
-async def lendo_bucket():
-    return bucket_s3.lendo_bucket()
-    # return FileResponse("your_image.jpeg")
+@app.get("/listandoarquivosbucket/")
+async def listando_arquivos_bucket():
+    return bucket_s3.listando_arquivos_bucket()
+
+@app.get("/deletandoarquivobucket/")
+def deletando_arquivo_bucket(key: Union[str, None] = None):
+    bucket_s3.deletando_arquivo_bucket(key)
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8080)

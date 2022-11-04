@@ -20,14 +20,17 @@ def criando_bucket():
         return False
     return True
 
-def lendo_bucket():
-    # s3 = boto3.client('s3')
-    # s3.download_file('grupo2erikjuliana', OBJECT_NAME, 'FILE_NAME')
+def listando_arquivos_bucket():
+
     arquivos = {'nome': []}
-    conn = boto3.client('s3')  # again assumes boto.cfg setup, assume AWS S3
+    conn = boto3.client('s3')  
     for key in conn.list_objects(Bucket='grupo2erikjuliana')['Contents']:
         arquivos['nome'].append(key['Key'])
     return arquivos
+
+def deletando_arquivo_bucket(key):
+    s3 = boto3.resource('s3')
+    s3.Object('grupo2erikjuliana', key).delete()
 
 def inserindo_bucket(my_array):
     client = boto3.client('s3')
