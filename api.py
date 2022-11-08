@@ -43,6 +43,3 @@ async def listando_arquivos_bucket():
 @app.get("/deletandoarquivobucket/")
 def deletando_arquivo_bucket(key: Union[str, None] = None):
     bucket_s3.deletando_arquivo_bucket(key)
-
-if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8080)

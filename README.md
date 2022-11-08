@@ -7,7 +7,8 @@ Erik
 Hyago  
 Davyson  
 
-## descrição
+## Descrição
+Esse trabalho visa colocar em prática todos os conceitos que foram apresentados nas aulas de segurança em nuvem para AWS. 
 
 ## Subindo a aplicação pro ec2
 Assista ao seguinte vídeo: [como fazer o deploy de uma api fastapi no ec2](https://www.youtube.com/watch?v=SgSnz7kW-Ko)
@@ -42,7 +43,7 @@ Após isso digite no terminal:
 Depois clone a aplicação com: `git clone link_api_do_github`  
 Entre dentro do diretório da aplicação com: `cd nome_diretório`  
 Instale as dependências do python: `pip install -r requirements.txt`  
-Execute a aplicação: `python3 -m uvicorn api:app --port 8080  --reload`  
+Execute a aplicação: `python3 -m uvicorn api:app`  
 
 ## usando o dinamodb do aws
 Para conseguir criar tabelas, inserir dados e realizar consultas no dinamidb da aws, é necessário fornecer uma permissão.  
